@@ -1,0 +1,533 @@
+/* ==========================================================================
+   Variables de thème
+   ========================================================================== */
+
+:root{
+  --bg: #0b1220;
+  --card: #111a2e;
+  --card2: #0f1730;
+
+  --text: #e7ecff;
+  --muted: #a9b3d6;
+
+  --accent: #5eead4;
+  --danger: #ff7b7b;
+  --ok: #7CFFB2;
+
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+/* ==========================================================================
+   Layout global
+   ========================================================================== */
+
+body {
+  background:
+    radial-gradient(1200px 700px at 20% 10%, rgba(94,234,212,.15), transparent 60%),
+    radial-gradient(1000px 700px at 80% 0%, rgba(126, 139, 255, .16), transparent 55%),
+    var(--bg);
+  color: var(--text);
+}
+
+#app {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+
+.screen {
+  width: min(520px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ==========================================================================
+   Typo
+   ========================================================================== */
+
+h1 {
+  margin: 0 0 2px 0;
+  font-size: 28px;
+  letter-spacing: 0.2px;
+}
+
+h2 {
+  margin: 0;
+  font-size: 16px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.muted { color: var(--muted); }
+
+/* ==========================================================================
+   Cartes
+   ========================================================================== */
+
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.subcard {
+  padding: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+}
+
+/* ==========================================================================
+   Inputs / selects
+   ========================================================================== */
+
+.input {
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(0,0,0,.20);
+  color: var(--text);
+  padding: 0 12px;
+  outline: none;
+}
+
+.input:focus {
+  border-color: rgba(94,234,212,.5);
+  box-shadow: 0 0 0 4px rgba(94,234,212,.14);
+}
+
+.labelRow, label {
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* ==========================================================================
+   Boutons
+   ========================================================================== */
+
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.btn {
+  height: 46px;
+  padding: 0 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.14);
+  cursor: pointer;
+  font-weight: 800;
+  letter-spacing: .2px;
+  transition: transform .05s ease, filter .08s ease;
+}
+
+.btn:active { transform: translateY(1px); }
+
+.btn.primary {
+  background: linear-gradient(180deg, rgba(94,234,212,.9), rgba(94,234,212,.65));
+  color: #001014;
+  border-color: rgba(94,234,212,.6);
+}
+
+.btn.ghost {
+  background: rgba(0,0,0,.20);
+  color: var(--text);
+}
+
+/* ==========================================================================
+   Home: recent players
+   ========================================================================== */
+
+.recentList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.recentRow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.recentPick {
+  flex: 1;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.18);
+  color: var(--text);
+  cursor: pointer;
+  text-align: left;
+  padding: 0 12px;
+  font-weight: 700;
+}
+
+.iconBtn {
+  height: 44px;
+  width: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.18);
+  color: var(--text);
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   Home: emoji picker
+   ========================================================================== */
+
+.emojiGrid{
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 8px;
+}
+
+@media (max-width: 420px){
+  .emojiGrid { grid-template-columns: repeat(6, 1fr); }
+}
+
+.emojiBtn {
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.18);
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.emojiBtn.selected {
+  border-color: rgba(94,234,212,.6);
+  box-shadow: 0 0 0 3px rgba(94,234,212,.14);
+}
+
+/* ==========================================================================
+   Game
+   ========================================================================== */
+
+.gameHeader{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.chip, .playerChip{
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.18);
+  font-weight: 800;
+}
+
+.question {
+  font-size: 36px;
+  font-weight: 900;
+  text-align: center;
+  padding: 8px 0;
+}
+
+@media (max-width: 420px){
+  .question { font-size: 32px; }
+}
+
+/* Feedback = décoratif (il ne doit jamais “manger” les clics) */
+.feedback{
+  height: 20px;
+  text-align: center;
+  font-weight: 900;
+  letter-spacing: .2px;
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.feedback.ok { color: var(--ok); }
+.feedback.ko { color: var(--danger); }
+
+.optionGrid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.optionBtn{
+  height: 64px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(0,0,0,.18);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.optionBtn:active { transform: translateY(1px); }
+
+/* Badge toast = décoratif (ne doit pas bloquer les clics) */
+.badgeToast{
+  height: 22px;
+  text-align: center;
+  font-weight: 900;
+  color: var(--accent);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity .12s ease, transform .12s ease;
+  pointer-events: none;
+}
+
+.badgeToast.show{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Scores
+   ========================================================================== */
+
+.filterRow{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.scoreTable{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.scoreRow{
+  display: grid;
+  grid-template-columns: 34px 1fr 64px 120px;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.14);
+}
+
+@media (max-width: 480px){
+  .scoreRow{
+    grid-template-columns: 34px 1fr 64px;
+    grid-template-areas:
+      "rank who score"
+      "rank date date";
+  }
+  .scoreDate { grid-area: date; }
+}
+
+.scoreRank{
+  font-weight: 900;
+  color: var(--accent);
+  text-align: center;
+}
+
+.scoreWho{
+  font-weight: 900;
+}
+
+.scoreValue{
+  font-weight: 900;
+  text-align: right;
+}
+
+.scoreDate{
+  color: var(--muted);
+  font-size: 12px;
+  text-align: right;
+}
+
+/* Ligne cliquable (modal détail) */
+.scoreRow.clickable{
+  cursor: pointer;
+  user-select: none;
+  text-align: left;
+}
+
+.scoreRow.clickable:hover{
+  border-color: rgba(94,234,212,.35);
+  transform: translateY(-1px);
+}
+
+.scoreRow.clickable:active{
+  transform: translateY(0px);
+}
+
+.scoreRow.clickable:focus{
+  outline: 2px solid rgba(94,234,212,.6);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Modal
+   ========================================================================== */
+
+.modalOverlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  z-index: 999;
+}
+
+.modal{
+  width: min(520px, 100%);
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+  box-shadow: 0 18px 50px rgba(0,0,0,.45);
+  padding: 14px;
+}
+
+.modalTitle{
+  font-weight: 900;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.modalContent{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 10px 0 12px 0;
+}
+
+.modalRow{
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.14);
+}
+
+@media (max-width: 420px){
+  .modalRow{ grid-template-columns: 1fr; }
+}
+
+.modalKey{
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.modalVal{
+  font-weight: 900;
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+
+.shake {
+  animation: shake 0.22s linear;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  30% { transform: translateX(-4px); }
+  60% { transform: translateX(4px); }
+  100% { transform: translateX(0); }
+}
+
+/* Scores par niveau */
+.levelsHost{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.levelSection{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.levelHeader{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+/* Ligne score simplifiée */
+.scoreRow.simple{
+  /* rank | who | score | date */
+  grid-template-columns: 34px 1fr 60px 130px;
+}
+
+@media (max-width: 480px){
+  .scoreRow.simple{
+    grid-template-columns: 34px 1fr 60px;
+    grid-template-areas:
+      "rank who score"
+      "rank date date";
+  }
+}
+
+/* Nom + petites infos badges */
+.scoreName{
+  font-weight: 900;
+}
+
+.scoreMeta{
+  margin-top: 4px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Petites pills pour badges */
+.pill{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.18);
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 900;
+}
+
+/* Score un peu plus mis en avant */
+.scoreValue.big{
+  font-size: 18px;
+}
+
+/* Légende des scores */
+.scoreLegend{
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(255,255,255,.12);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.legendRow{
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.legendRow span{
+  font-size: 16px;
+}

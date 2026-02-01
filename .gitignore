@@ -1,0 +1,13 @@
+# Dépendances
+web/node_modules/
+
+# Build
+web/dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
