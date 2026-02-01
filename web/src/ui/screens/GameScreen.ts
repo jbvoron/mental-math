@@ -5,6 +5,7 @@ import { addScore } from "../../storage/scores";
 import { Button } from "../components/Button";
 import { Card } from "../components/Card";
 import { OptionGrid } from "../components/OptionGrid";
+import { Footer } from "../components/Footer";
 
 const GAME_DURATION_SECONDS = 60;
 
@@ -167,6 +168,8 @@ export function GameScreen(): HTMLElement {
   // Initial render
   renderStatus();
   renderQuestionAndOptions();
+
+  root.appendChild(Footer());
 
   return root;
 }
