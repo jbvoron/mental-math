@@ -3,6 +3,7 @@ import type { Level } from "../../app/state";
 import { getTopScores, clearScores, type ScoreEntry } from "../../storage/scores";
 import { Button } from "../components/Button";
 import { Card } from "../components/Card";
+import { Footer } from "../components/Footer";
 import { levelLabel } from "../../game/levelLabels";
 
 function formatDateShort(ms: number): string {
@@ -149,7 +150,7 @@ export function ScoreScreen(): HTMLElement {
 
   // ✅ Card : ordre propre
   const card = Card([listHost, legend, actions]);
-  root.append(title, card);
+  root.append(title, card, Footer());
 
   return root;
 }

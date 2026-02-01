@@ -4,6 +4,7 @@ import { listRecentPlayers, upsertRecentPlayer, deleteRecentPlayer } from "../..
 import { Button } from "../components/Button";
 import { Card } from "../components/Card";
 import { EmojiPicker } from "../components/EmojiPicker";
+import { Footer } from "../components/Footer";
 import { levelLabel as getLevelLabel } from "../../game/levelLabels";
 
 export function HomeScreen(): HTMLElement {
@@ -139,7 +140,7 @@ export function HomeScreen(): HTMLElement {
     actions,
   ]);
 
-  root.append(title, Card([recentTitle, recentList], "subcard"), card);
+  root.append(title, Card([recentTitle, recentList], "subcard"), card, Footer());
 
   renderRecent();
   renderEmoji();
